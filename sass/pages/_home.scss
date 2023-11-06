@@ -1,0 +1,236 @@
+ 
+$navbar-color: rgb(0, 0, 0);
+$text-color: rgb(255, 255, 255);
+$mobile-breakpoint: 768px; 
+
+body {
+  font-family: 'Ubuntu Mono', monospace; 
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: $navbar-color;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 1rem 100px;
+  z-index: 1000;
+  font-size: 20px;
+  font-weight: bold;
+  
+  .logo {
+    img {
+      display: block;
+      height: 30px; 
+      width: auto;
+    }
+
+    .logo-text {
+      display: none;
+    }
+  }
+
+  .hamburger-menu {
+    cursor: pointer;
+    span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: $text-color;
+      margin: 4px 0;
+    }
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $navbar-color;
+
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+
+      .theme-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    
+    .icon {
+        font-size: 1.5rem; 
+        opacity: 1; 
+        transition: opacity 0.3s;
+        margin-right: 10px;
+        color: $text-color; 
+    }
+}
+
+      li {
+        text-align: center;
+        padding: 0.5rem 0;
+
+        a {
+          color: $text-color;
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.active {
+      display: block;
+    }
+    
+  }
+
+  @media(min-width: $mobile-breakpoint) {
+
+    .logo .logo-text {
+      display: block;
+      color: $text-color;
+    }
+
+    .hamburger-menu {
+      display: none;
+    }
+
+    nav {
+      display: flex;
+      position: relative;
+      width: auto; 
+
+      .nav-links {
+        flex-direction: row;
+        gap: 70px;
+        letter-spacing: 5px;
+        justify-content: flex-end;
+      }
+      .icon{
+        justify-content: center;
+      }
+    }
+  }
+}
+
+
+//footer
+footer {
+    background-color: #fff;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .footer-content {
+        max-width: 1640px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+
+            span {
+                color: #000;
+            }
+        }
+
+        .contact-btn {
+            margin-bottom: 30px; 
+            padding: 10px 20px;
+            border: none;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .footer-links {
+            display: flex;
+            align-self: flex-end;
+
+            a {
+                margin: 0 5px;
+                text-decoration: none;
+                color: #000;
+            }
+
+            .email {
+                display: none;
+            }
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+
+            p {
+                margin: 0;
+            }
+
+            .social-icons {
+                display: flex;
+                gap: 15px;
+
+                a {
+                    text-decoration: none;
+                    color: #000;
+                }
+            }
+        }
+    }
+
+    // Tablet
+    @media (max-width: 768px) {
+        .footer-content {
+            .footer-links {
+                justify-content: center;
+                align-self: center;
+            }
+        }
+    }
+
+    // Mobile
+    @media (max-width: 576px) {
+    .footer-content {
+        align-items: center;
+
+        h2 {
+            text-align: center;
+        }
+
+        .contact-btn {
+            align-self: center;
+        }
+
+        .footer-links {
+            align-self: center;
+            gap: 10px;
+            margin-bottom: 20px;
+
+            a {
+                margin: 0 5px; 
+            }
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            align-items: center;
+
+            .social-icons {
+                gap: 10px;
+            }
+        }
+    }
+}
+}
